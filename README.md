@@ -19,7 +19,7 @@ Organizations should consult qualified healthcare compliance experts, clinical s
 When AI is applied in healthcare, oftentimes a scenario arises that involves two distinct parties:
 
 - **Model Owner**: Develops a machine learning model with proprietary weights, architecture, and pre-training investments.
-- **Model Consumer**: Runs the model in a secure enclave on their own patient or operational data (e.g., diagnostic images, clinical notes, or discharge summaries).
+- **Model Consumer**: Runs the model in a secure Nitro Enclave on their own patient or operational data (e.g., diagnostic images, clinical notes, or discharge summaries).
 
 This dynamic creates two competing risks:
 
@@ -36,13 +36,13 @@ This solution leverages **AWS Nitro Enclaves**, which provide isolated, attested
 
   - The model is encrypted at rest with **AWS KMS**.
   - Only an AWS Nitro Enclave that can provide a valid attestation document is authorized to decrypt the model.
-  - This ensures the model can run, but cannot be extracted or reused outside the enclave.
+  - This ensures the model can run, but cannot be extracted or reused outside the Nitro Enclave.
 
 - **Data confidentiality**:
 
-  - The model consumer’s sensitive input data and outputs are processed entirely inside the enclave within their AWS account.
+  - The model consumer’s sensitive input data and outputs are processed entirely inside the Nitro Enclave within their AWS account.
   - The model owner has no access to the underlying model weights.
-  - Data never leaves the enclave unless explicitly allowed by the consumer’s IAM policy.
+  - Data never leaves the Nitro Enclave unless explicitly allowed by the consumer’s IAM policy.
 
 - **Attestation and trust**:
   - AWS Nitro Enclaves produce attestation reports signed by AWS hardware that prove the Nitro Enclave is running the expected code.
