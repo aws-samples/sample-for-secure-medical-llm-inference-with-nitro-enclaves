@@ -51,12 +51,12 @@ This solution leverages **AWS Nitro Enclaves**, which provide isolated, attested
 ## Architecture Considerations
 
 - The **AWS Nitro Enclave image** contains only the runtime environment and inference code - no model IP is embedded.
-- The model artifacts are retrieved at runtime and decrypted inside the enclave using KMS.
+- The model artifacts are retrieved at runtime and decrypted inside the Nitro Enclave using KMS.
 - Only essential interfaces are exposed:
   - **AWS KMS** for secure key handling.
   - **Amazon S3** for encrypted model artifact storage.
   - **LLM inference endpoint** for request/response.
-  - **IMDSv2** for enclave identity and attestation workflows.
+  - **IMDSv2** for Nitro Enclave identity and attestation workflows.
 - Networking and I/O are strictly minimized to reduce attack surface.
 
 ## About MedGemma 4B
