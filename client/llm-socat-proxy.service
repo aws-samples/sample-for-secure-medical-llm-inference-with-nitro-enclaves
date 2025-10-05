@@ -1,0 +1,16 @@
+[Unit]
+Description=LLM socat Proxy
+After=network-online.target
+DefaultDependencies=no
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=llm-socat-proxy
+ExecStart=/bin/bash -ce "exec /usr/bin/socat tcp-listen:11434,fork,reuseaddr VSOCK-CONNECT:16:8000"
+Restart=always
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target

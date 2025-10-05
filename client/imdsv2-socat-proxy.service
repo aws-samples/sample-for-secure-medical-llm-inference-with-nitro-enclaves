@@ -1,0 +1,16 @@
+[Unit]
+Description=IMDSV2 socat Proxy
+After=network-online.target
+DefaultDependencies=no
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=imdsv2-socat-proxy
+ExecStart=/bin/bash -ce "exec /usr/bin/socat VSOCK-LISTEN:8010,fork,reuseaddr tcp-connect:169.254.169.254:80"
+Restart=always
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target

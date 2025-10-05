@@ -1,0 +1,8 @@
+REGION: <REGION> # YOUR AWS REGION HERE
+
+allowlist:
+  - {address: s3.${REGION}.amazonaws.com, port: 443}
+  - {address: kms.${REGION}.amazonaws.com, port: 443}
+
+
+

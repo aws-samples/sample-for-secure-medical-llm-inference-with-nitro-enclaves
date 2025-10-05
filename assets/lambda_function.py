@@ -4,7 +4,7 @@ import base64
 s3 = boto3.client('s3')
 sqs = boto3.client('sqs')
 
-SQS_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/406166172533/llm_enclave_medgemma_queue'
+SQS_QUEUE_URL = '<SQS_QUEUE_URL>' # YOUR SQS QUEUE URL HERE
 
 def lambda_handler(s3_event, context):
     for record in s3_event.get("Records", []):
