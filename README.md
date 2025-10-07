@@ -203,7 +203,7 @@ For demonstration purposes, this solution is deployed in a **single AWS account*
 
 - **Add an IAM role**: Go to AWS IAM, create a role (i.e. `enclave-role`) and give it Amazon S3 access to the model bucket, Amazon SQS access to the queue you created, and Amazon DynamoDB access to the table using inline policy permissions (see policies to attach below). Afterwards, update your Amazon EC2 instance to use the role by going to the **Security** setting under the **Actions** dropdown, then modifying its IAM role.
 
-  - Amason S3 policy: Same as one in Step 5.
+  - Amason SQS policy: Same as one in Step 5.
   - Amazon S3 policy: 
 
   ```
