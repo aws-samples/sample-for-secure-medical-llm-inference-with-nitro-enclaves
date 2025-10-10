@@ -62,6 +62,7 @@ INSTANCE_ID=$(aws ec2 run-instances \
     --security-group-ids "$SECURITY_GROUP_ID" \
     --user-data "$USER_DATA" \
     --enclave-options "Enabled=$ENCLAVE_OPTIONS" \
+    --block-device-mappings "DeviceName=/dev/xvda,Ebs={VolumeSize=150,VolumeType=gp3}" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=MedGemmaNitroEnclaveDemo}]" \
     --query "Instances[0].InstanceId" \
     --output text)

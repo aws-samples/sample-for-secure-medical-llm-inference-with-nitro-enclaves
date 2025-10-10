@@ -95,11 +95,34 @@ class DynamoDBLogger:
 def send_request_and_log(prompt):
     """Send request to llama server and log to DynamoDB"""
     
-    # Prepare the request payload
+    # Prepare the request payload with medical assistant system prompt
     payload = {
         "model": "medgemma",
-        "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 300,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": 
+                            """You are a medical AI assistant with advanced accuracy, built to assist healthcare professionals.
+                            Analyze the input query and provide a clinically useful response. Focus on evidence-based information and do not invent or infer information not supported by medical knowledge.
+                            
+                            Focus on:
+                            - Providing accurate, evidence-based medical information
+                            - Using precise, formal clinical language
+                            - Identifying key clinical considerations
+                            - Mentioning uncertainty only when information cannot be determined
+                            
+                            Structure your response with a brief summary first, followed by a detailed explanation when appropriate."""
+                    },
+                    {
+                        "type": "text",
+                        "text": prompt
+                    }
+                ]
+            }
+        ],
         "stream": False
     }
     
