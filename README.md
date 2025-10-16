@@ -1,6 +1,6 @@
-# Building Zero-Trust Healthcare Generative AI Applications with AWS Nitro Enclaves
+# Building Zero Trust Healthcare Generative AI Applications with AWS Nitro Enclaves
 
-This project demonstrates how medical LLMs can be securely published and consumed using **AWS Nitro Enclaves**. It enables **model owners** to protect their intellectual property while allowing **model consumers** to run private healthcare inferences on sensitive data within their own AWS account. This design establishes a **zero-trust boundary** between the model publisher and the healthcare organization consuming the model.
+This project demonstrates how medical LLMs can be securely published and consumed using **AWS Nitro Enclaves**. It enables **model owners** to protect their intellectual property while allowing **model consumers** to run private healthcare inferences on sensitive data within their own AWS account. This design establishes a **zero trust boundary** between the model publisher and the healthcare organization consuming the model.
 
 ## ⚠️ Security Disclaimer
 
@@ -72,9 +72,9 @@ In this project, **MedGemma 4B** serves as a **reference medical LLM** that demo
 
 ## Solution Workflow
 
-The solution implements a secure end-to-end pipeline that enables **zero-trust medical LLM inference** with AWS Nitro Enclaves. Each step ensures that both the **model owner’s intellectual property** and the **consumer’s sensitive data** remain protected.
+The solution implements a secure end-to-end pipeline that enables **zero trust medical LLM inference** with AWS Nitro Enclaves. Each step ensures that both the **model owner’s intellectual property** and the **consumer’s sensitive data** remain protected.
 
-For demonstration purposes, this solution is deployed in a **single AWS account**. Ideally, in production, it would be deployed **across separate AWS accounts** - one for the **model owner** and one for the **model consumer**. Using **cross-account IAM permissions** and **encrypted model sharing via AWS KMS**, the model owner can securely provide access to their model without exposing the underlying weights or logic, while the consumer can run sensitive inferences within their own environment, maintaining strict data privacy and zero-trust principles.
+For demonstration purposes, this solution is deployed in a **single AWS account**. Ideally, in production, it would be deployed **across separate AWS accounts** - one for the **model owner** and one for the **model consumer**. Using **cross-account IAM permissions** and **encrypted model sharing via AWS KMS**, the model owner can securely provide access to their model without exposing the underlying weights or logic, while the consumer can run sensitive inferences within their own environment, maintaining strict data privacy and zero trust principles.
 
 ### Steps
 
